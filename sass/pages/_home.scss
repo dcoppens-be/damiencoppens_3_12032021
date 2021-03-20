@@ -1,0 +1,136 @@
+.introduction
+{
+    text-align:center;
+    background-color: #EAEAEA; /* #F6F6F6; */
+    padding:5% 0 5% 0;
+    box-shadow: 0px -3px 3px #CFCFCF;
+}
+
+.introduction h2
+{
+    font-size:1em;
+    font-weight:normal;
+}
+
+.location
+{
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+}
+
+.location p,h3
+{
+    margin:0;
+}
+
+.location >p
+{
+    padding:0 5%;
+}
+
+.operation
+{
+    padding:0 5%;
+}
+
+.operation div
+{
+    width:90%;
+    background-color: #F6F6F6;
+    box-shadow:2px 2px 4px black;
+    border-radius: 15px;
+    display:flex;
+    justify-content:left;
+    align-content:center;
+    margin:0 0 5% 0;
+}
+
+.operation div:last-child
+{
+    background-color: #F5EDFF;
+}
+
+.operation div:last-child p:nth-child(2)
+{
+    color: $primary;
+}
+
+.operation div p:nth-child(1)
+{
+    background-color:$primary;
+    color:white;
+    border-radius:50%;
+    padding:0 7px 0 7px;
+    margin:16px 0 16px -11px;
+}
+
+.operation div p:nth-child(2)
+{
+    padding:0 2.0em;
+    color:#7E7E7E;
+}
+
+.operation h3
+{
+    margin:16px 0 16px 0;
+}
+
+.collection
+{
+    background-color:#F6F6F6;
+    padding:0 5% 0 5%;
+}
+
+.card
+{
+    margin:0;
+    width:100%;
+    position:relative;
+}
+
+.card img
+{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.new
+{
+    width:5.0em;
+    color:#008766;
+    text-align:center;
+    background-color:$tertiary;
+    position:absolute;
+    top:10px;
+    right:10px;
+    /* z-index:2; */
+}
+
+.new p
+{
+    margin:0;
+}
+
+.favourite i
+{
+    background:linear-gradient(to right bottom,$secondary,$primary);
+}
+
+.filled
+{
+    /* background:linear-gradient(to top, linear-gradient(to right bottom,$secondary,$primary) 20%, white 20%);*/
+    background:linear-gradient(to right bottom,$secondary,$primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.favourite3 .fas
+{
+    background:-webkit-linear-gradient($secondary,$primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

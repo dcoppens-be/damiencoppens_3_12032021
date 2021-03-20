@@ -1,0 +1,11 @@
+button
+{
+    /* margin:auto; */
+    cursor:pointer;
+    color:white;
+    padding:1em;
+    border-radius:1.75em;
+    border:none;
+    box-shadow:2px 2px 4px black;
+    background:linear-gradient(to right bottom,$secondary,$primary);
+}
