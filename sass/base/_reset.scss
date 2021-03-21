@@ -5,3 +5,8 @@ body
     margin:0;
     padding:0;
 }
+
+ul /* Suppression des puces des listes non ordonnées */
+{
+    list-style-type:none;
+}

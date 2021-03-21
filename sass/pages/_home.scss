@@ -126,6 +126,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color:black;
 }
 
 .favourite3 .fas
@@ -133,4 +136,42 @@
     background:-webkit-linear-gradient($secondary,$primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    /* text-shadow:0.1px 0.1px 0 black; */
+    /* text-shadow: -0.1px -0.1px 0 black, 0.1px -0.1px 0 black, -0.1px 0.1px 0 black, 0.1px 0.1px 0 black; */
+}
+
+.animation-check
+{
+    cursor:pointer;
+    transition: transform 400ms ease-in-out;
+    &:hover
+    {
+        color:red;
+        transform:translateX(30px) rotate(1.5turn);
+    }
+}
+
+.animation-heart
+{
+    &__stroke
+    {
+        font-size:48px;
+        color:red;
+    }
+    &__fill
+    {
+        font-size:40px;
+        color:green;
+        transition: color 2000ms 100ms;
+
+        &:hover
+        {
+            background:linear-gradient(to right bottom,$secondary,$primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            
+        }
+    }
 }

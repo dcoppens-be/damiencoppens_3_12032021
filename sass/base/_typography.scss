@@ -1,6 +1,6 @@
 *
 {
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-primary;
 }
 
 /*
@@ -12,7 +12,7 @@ h1,h2
 
 .logo
 {
-    font-family: 'Shrikhand', cursive;
+    font-family: $font-logo;
     font-size:1.5em;
     letter-spacing:0.0em;
 }
