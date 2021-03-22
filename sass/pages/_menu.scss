@@ -33,10 +33,19 @@
     border-radius:0.5em;
     box-shadow:2px 2px 4px black;
 
-    > div
+    div:nth-child(1)
     {
+        width:90%;
+        background-color:green;
         display:flex;
         flex-direction:column;
+
+        div
+        {
+            
+            display:flex;
+            justify-content:space-between;
+        }
     }
 
     p
@@ -45,16 +54,20 @@
         padding:0.5em 0 0.5em 0;
     }
 
-    div
+    
+
+    .menu-item-details p:nth-child(1)
     {
-        display:flex;
-        justify-content:space-between;
+        background-color:pink;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
     }
 
     .check
     {
         /* transform:scale(0); */
-        border-radius:0.5em;
+        border-radius:0 0.5em 0.5em 0;
         overflow:hidden;
 
         span

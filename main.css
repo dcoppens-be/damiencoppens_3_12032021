@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* INITIALISATION des comportements de base */
 /* Forcer le corps de la page à occuper toute la largeur, avec remise à 0 du margin et du padding */
 body {
   width: 100%;
@@ -6,8 +7,17 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 ul {
   list-style-type: none;
+}
+
+p {
+  margin: 0;
 }
 
 * {
@@ -66,6 +76,18 @@ fa-arrow-left
     float:right;
 }
 */
+footer {
+  background-color: #353535;
+}
+footer * {
+  color: white;
+}
+footer i {
+  font-size: 0.8em;
+  width: 1em;
+  padding: 0 0.8em 0 0;
+}
+
 .introduction {
   text-align: center;
   background-color: #EAEAEA;
@@ -128,6 +150,7 @@ fa-arrow-left
 .operation div p:nth-child(2) {
   padding: 0 2em;
   color: #7E7E7E;
+  margin: 16px 0 16px 0;
 }
 
 .operation h3 {
@@ -247,21 +270,29 @@ fa-arrow-left
   }
   */
 }
-.menu-item > div {
+.menu-item div:nth-child(1) {
+  width: 90%;
+  background-color: green;
   display: flex;
   flex-direction: column;
+}
+.menu-item div:nth-child(1) div {
+  display: flex;
+  justify-content: space-between;
 }
 .menu-item p {
   margin: 0;
   padding: 0.5em 0 0.5em 0;
 }
-.menu-item div {
-  display: flex;
-  justify-content: space-between;
+.menu-item .menu-item-details p:nth-child(1) {
+  background-color: pink;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu-item .check {
   /* transform:scale(0); */
-  border-radius: 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
   overflow: hidden;
 }
 .menu-item .check span {

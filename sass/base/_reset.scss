@@ -1,3 +1,5 @@
+/* INITIALISATION des comportements de base */
+
 /* Forcer le corps de la page à occuper toute la largeur, avec remise à 0 du margin et du padding */
 body
 {
@@ -6,7 +8,18 @@ body
     padding:0;
 }
 
+a /* Suppression des caractéristiques initialies des liens: mise en forme et couleur */
+{
+    text-decoration:none; 
+    color:black;
+}
+
 ul /* Suppression des puces des listes non ordonnées */
 {
     list-style-type:none;
+}
+
+p /* Suppression des marges de tous les paragraphes */
+{
+    margin:0;
 }
