@@ -13,20 +13,35 @@
 {
     background-color:#F6F6F6;
     padding:0 5% 0 5%;
+
+    &__list
+    {
+        padding:0;
+        background-color:red;
+        width:100%;
+        animation:apparition-progressive 1000ms backwards ease-in-out;
+        @for $i from 1 through 3
+        {
+            &--#{$i}
+            {
+                animation-delay:500ms * $i;
+            }
+        }
+    }
 }
 
-.menu-list
+.menu__list--1
 {
-    padding:0;
-    background-color:red;
-    width:100%;
+    
 }
 
 .menu-item
 {
     display:flex;
     justify-content:space-between;
-    
+
+    /* animation:apparition-progressive 1000ms 1000ms; */
+
     background-color:white;
     width:100%;
     margin:0 0 1.0em 0;
@@ -35,7 +50,7 @@
 
     div:nth-child(1)
     {
-        width:90%;
+        width:100%;
         background-color:green;
         display:flex;
         flex-direction:column;
@@ -64,29 +79,49 @@
         text-overflow:ellipsis;
     }
 
+    overflow:hidden;
+
+    
+
     .check
     {
         /* transform:scale(0); */
         border-radius:0 0.5em 0.5em 0;
         overflow:hidden;
+        width:100px;
+
+        transform:translateX(100%);
+        transition:transform 400ms;
+
+        display:flex;
 
         span
         {
             height:100%;
+            width:100%;
+            font-size:1.0em;
+            padding:1.0em 0.5em;
             background-color:$tertiary;
-            transform:translateX(50px);
-            transition:transform 400ms;
+            /* transform:translateX(50px);
+            transition:transform 400ms; */
+
+            .fa-circle
+            {
+                color:white;
+            }
 
             .fa-check
             {
+                color:$tertiary;
                 transform:rotate(-1.0turn);
                 transition:transform 400ms;
             }
         }
+        
     }
 
 
-    &:hover span
+    &:hover .check
         {
             /* transform:scale(1); */
             transform:translateX(0);
@@ -97,10 +132,18 @@
             }
         }
 
-        /*
-    &:hover .fa-check
+}
+
+@keyframes apparition-progressive
+{
+    from
     {
-        transform:rotate(0);
+        opacity:0;
+        transform:translateY(15px);
     }
-    */
+    to
+    {
+        opacity:1;
+        transform:translateY(0);
+    }
 }
