@@ -94,12 +94,17 @@ header p:nth-child(2) {
 
 footer {
   background-color: #353535;
+  padding: 0 5%;
 }
 footer * {
   color: white;
 }
 footer ul {
   margin: 0;
+  padding: 1em 0 1em 0;
+}
+footer ul li {
+  padding-top: 0.5em;
 }
 footer i {
   font-size: 0.8em;
@@ -215,13 +220,16 @@ footer i {
 }
 
 .favourite {
-  font-size: 1.5em;
+  /*font-size:1.5em;*/
+  display: flex;
   position: relative;
   z-index: 1;
 }
 .favourite__hea {
+  margin: auto;
   color: white;
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px -1px black, -1px 1px black;
+  font-size: 1.5em;
   /* transition: color 2000ms 100ms; */
   /*
           position:relative;
@@ -269,18 +277,28 @@ footer i {
 }
 .favourite:hover div {
   opacity: 1;
+  transform: scale(1);
 }
 .favourite div {
+  display: flex;
   position: absolute;
   top: 0;
+  /*-3px;*/
   right: 0;
   bottom: 0;
   left: 0;
+  /*-3px;*/
   /*z-index: -1;*/
   opacity: 0;
-  transition: opacity 250ms;
+  /*transform-origin:bottom;*/
+  transform: scale(0);
+  transition: opacity 250ms, transform 2500ms;
+  font-size: 1.95em;
+  /*1.7em;*/
 }
 .favourite div .favourite__heart {
+  padding: 0;
+  margin: auto;
   background: linear-gradient(to right bottom, #FF79DA, #9356DC);
   background-clip: text;
   -webkit-background-clip: text;
@@ -350,21 +368,56 @@ footer i {
     margin: 0 20%;
   }
 }
+.pagewrapper {
+  /*position:relative;*/
+  /*z-index:1;*/
+}
+.pagewrapper::after {
+  display: none;
+  content: "";
+  background-color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  animation: disparition 250ms 3000ms both ease-in-out;
+  /*
+  opacity: 1;
+  transition: opacity 3000ms;
+  */
+}
+
 .spinning-loader {
   width: 100%;
-  height: 400px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
   perspective: 500px;
 }
 .spinning-loader .pie {
+  /*position:sticky;*/
+  top: 20px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   transform-style: preserve-3d;
-  animation: loader 1000ms 500ms both ease-in-out;
-  animation-iteration-count: 2;
+  /*
+  animation:loader 750ms ease-in-out 250ms both;
+  */
+  animation-name: loader, disparition;
+  animation-duration: 750ms, 250ms;
+  animation-timing-function: ease-in-out, ease-in-out;
+  animation-delay: 250ms, 3000ms;
+  animation-iteration-count: 1, 1;
+  /*animation-direction*/
+  animation-fill-mode: both, both;
+  /*animation-play-state*/
 }
 .spinning-loader .pie--1 {
   background-color: #9356DC;
@@ -373,12 +426,12 @@ footer i {
 .spinning-loader .pie--2 {
   background-color: #FF79DA;
   transform-origin: 50% 50% 10px;
-  animation-delay: 1500ms;
+  animation-delay: 1500ms, 3000ms;
 }
 .spinning-loader .pie--3 {
   background-color: #99E2D0;
   transform-origin: right top 10px;
-  animation-delay: 2500ms;
+  animation-delay: 2500ms, 3000ms;
 }
 
 @keyframes loader {
@@ -387,6 +440,15 @@ footer i {
   }
   to {
     transform: rotateY(-360deg) translateZ(10px);
+    /* $y:$y+1; */
+  }
+}
+@keyframes disparition {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 .menupage {
@@ -400,6 +462,18 @@ footer i {
 .menu {
   background-color: #F6F6F6;
   padding: 0 5% 0 5%;
+}
+.menu h2 {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 0.2em;
+}
+.menu hr {
+  color: #99E2D0;
+  width: 3em;
+  border-top: 2px solid #99E2D0;
+  margin: 0.2em auto 0.5em 0;
 }
 .menu__list {
   padding: 0;
@@ -430,6 +504,7 @@ footer i {
 }
 .menu-item div:nth-child(1) {
   width: 100%;
+  transition: width 400ms;
   background-color: green;
   display: flex;
   flex-direction: column;
@@ -437,6 +512,9 @@ footer i {
 .menu-item div:nth-child(1) div {
   display: flex;
   justify-content: space-between;
+}
+.menu-item:hover div:nth-child(1) {
+  width: 80%;
 }
 .menu-item p {
   margin: 0;
@@ -449,17 +527,17 @@ footer i {
   text-overflow: ellipsis;
 }
 .menu-item .check {
-  /* transform:scale(0); */
   border-radius: 0 0.5em 0.5em 0;
   overflow: hidden;
-  width: 100px;
+  width: 50px;
+  /* transform:scaleX(0); */
   transform: translateX(100%);
-  transition: transform 400ms;
+  transition: transform 400ms, width 400ms;
   display: flex;
 }
 .menu-item .check span {
   height: 100%;
-  width: 100%;
+  width: 100px;
   font-size: 1em;
   padding: 1em 0.5em;
   background-color: #99E2D0;
@@ -475,7 +553,8 @@ footer i {
   transition: transform 400ms;
 }
 .menu-item:hover .check {
-  /* transform:scale(1); */
+  width: 100px;
+  /* transform:scaleX(1); */
   transform: translateX(0);
 }
 .menu-item:hover .check .fa-check {
