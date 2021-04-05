@@ -1,4 +1,4 @@
-.menupage
+.menuheader
 {
     width:100%;
 
@@ -6,13 +6,22 @@
     {
         width:100%;
         height:300px;
+        object-fit:cover;
     }
 }
 
 .menu
 {
-    background-color:#F6F6F6;
-    padding:0 5% 0 5%;
+    /*
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    */
+
+    background-color:$primary-grey;
+    padding:1.0em 5% 2.5em 5%;
+    border-radius:50px 50px 0 0;
 
     h2
     {
@@ -24,6 +33,7 @@
 
     hr
     {
+        /*text-align:left;*/
         color:$tertiary;
         width:3.0em;
         border-top:2px solid $tertiary;
@@ -33,7 +43,7 @@
     &__list
     {
         padding:0;
-        background-color:red;
+        /*background-color:red;*/
         width:100%;
         animation:apparition-progressive 1000ms backwards ease-in-out;
         @for $i from 1 through 3
@@ -44,19 +54,28 @@
             }
         }
     }
+
+    /* Bouton "Commander" */
+    >div
+    {
+        padding:1.0em 0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        button
+        {
+            padding:1em 2.5em;
+        }
+    }
+
 }
 
-.menu__list--1
-{
-    
-}
 
 .menu-item
 {
     display:flex;
     justify-content:space-between;
-
-    /* animation:apparition-progressive 1000ms 1000ms; */
 
     background-color:white;
     width:100%;
@@ -64,52 +83,38 @@
     border-radius:0.5em;
     box-shadow:2px 2px 4px black;
 
+    /* Espace-texte décrivant le mets  */
     div:nth-child(1)
     {
         width:100%;
         transition:width $coche-duration;
-        background-color:green;
+        /*background-color:green;*/
         display:flex;
         flex-direction:column;
 
-        div
+        /*Titre du mets*/
+        >p
         {
-            
-            display:flex;
-            justify-content:space-between;
+            font-weight:bold;
         }
-    }
-
-    &:hover div:nth-child(1)
-    {
-        width:80%;
-    }
-
-    p
-    {
-        margin:0;
-        padding:0.5em 0 0.5em 0;
     }
 
     
 
-    .menu-item-details p:nth-child(1)
+    p
     {
-        background-color:pink;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
+        /* margin:0; */
+        padding:0.5em 0 0.5em 0;
     }
 
     overflow:hidden;
 
-    
-
+    /* Contenant de la coche */
     .check
     {
         border-radius:0 0.5em 0.5em 0;
-        overflow:hidden;
-        width:50px;
+        /* overflow:hidden; */
+        width:0;
 
         
         /* transform:scaleX(0); */
@@ -118,10 +123,11 @@
 
         display:flex;
 
+        /* Contenant des icônes*/
         span
         {
             height:100%;
-            width:100px;
+            width:100%;
             font-size:1.0em;
             padding:1.0em 0.5em;
             background-color:$tertiary;
@@ -136,25 +142,51 @@
             .fa-check
             {
                 color:$tertiary;
-                transform:rotate(-1.0turn);
-                transition:transform $coche-duration;
+                
+                /* transition:transform $coche-duration; */
             }
         }
         
     }
 
 
+    /* Au survol de l'élément du menu*/
+    &:hover div:nth-child(1)
+    {
+        width:80%; /* Réduction de la largeur de l'espace-texte */
+    }
+    /* Au survol de l'élément du menu*/
     &:hover .check
         {
-            width:100px;
-            /* transform:scaleX(1); */
-            transform:translateX(0);
+            width:20%; /* Agmentation de la largeur du contenant de la coche*/
+            transform:translateX(0); /* Translation dans l'élement du menu */
             
             .fa-check
             {
-                transform:rotate(0);
+                animation:rotation-1turn $coche-duration; /*Keyframes de roatation de la coche */
             }
         }
+
+}
+
+.menu-item-details
+{
+    display:flex;
+    justify-content:space-between;
+
+    p:nth-child(1)
+    {
+        /*background-color:pink;*/
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+
+    p:last-child
+    {
+        font-weight:bold;
+        padding-right:0.5em;
+    }
 
 }
 
@@ -169,5 +201,17 @@
     {
         opacity:1;
         transform:translateY(0);
+    }
+}
+
+@keyframes rotation-1turn
+{
+    from
+    {
+        transform:rotate(-1.0turn);
+    }
+    to
+    {
+        transform:rotate(0);
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <!-- Métadonnées de la page web-->
         <!-- Définition de la description-->
-    <meta name="description" content="Réservez facilement votre menu gastronomique dans les meilleurs restaurants de votre ville. La plateforme Ohmyfood! vous permet de composer votre menu et qu'il soit préparé spécialement pour vous. Partenaire de la gastronomie, Reservia vous offre une expérience délicieusement parfaite." />
+    <meta name="description" content="Réservez facilement votre menu gastronomique dans les meilleurs restaurants de votre ville. La plateforme Ohmyfood! vous permet de composer votre menu et qu'il soit préparé spécialement pour vous. Partenaire de la gastronomie, Reservia vous offre une expérience parfaite et délicieuse." />
         <!-- Définition de l'encodage de ce fichier HTML-->
     <meta charset="UTF-8">
 
@@ -33,7 +33,13 @@
 
 </head>
 <body>
-    <div class="pagewrapper">
+    <div class="pagewrapper loadingpage">
+
+        <div class="spinning-loader">
+            <div class="pie pie--1"> <span>Oh</span> </div>
+            <div class="pie pie--2"> <span>my</span> </div>
+            <div class="pie pie--3"> <span>food!</span> </div>
+        </div>
 
         <header>
             <!--
@@ -44,20 +50,13 @@
 
         <section class="location">
             <p><i class="fas fa-map-marker-alt"></i></p><h3>Paris, Belleville</h3>
-
         </section>
 
         <section class="introduction">
             <h1>Réservez le menu qui <br/> vous convient</h1>
-            <h2>Découvrez des restaurants d'exception, <br/> sélectionnez par nos soins.</h2>
+            <h2>Découvrez des restaurants d'exception, <br/> sélectionnés par nos soins.</h2>
             <button>Explorer nos restaurants</button>
         </section>
-
-        <div class="spinning-loader">
-            <div class="pie pie--1"></div>
-            <div class="pie pie--2"></div>
-            <div class="pie pie--3"></div>
-        </div>
 
         <section class="operation">
             <h2>Fonctionnement</h2>
@@ -78,7 +77,7 @@
                     </div>
                     <figcaption>
                         <div>
-                            <p>La palette du goût</p>
+                            <h3>La palette du goût</h3>
                             <p>Ménilmontant</p>
                         </div>
                         <span class="favourite"><i class="fas fa-heart favourite__hea"></i>
@@ -96,25 +95,48 @@
                 </figure>
             </a>
 
-            <figure class="card">
-                <img src="images/restaurants/paris-restaurant-lanoteenchantee-charonne.jpg" alt="La note enchantée - Restaurant - Paris, Charonne" title="Cliquable" loading="lazy" width="3024" height="3780"/>
-                <figcaption>
-                    <p>La note enchantée</p>
-                    <p>Charonne</p>
-                    <span class="fa-stack fa-2x animation-heart">
-                        <i class="far fa-heart fa-stack-1x animation-heart__stroke"></i>
-                        <i class="fas fa-heart fa-stack-1x animation-heart__fill"></i>
-                    </span>
-                </figcaption>
-            </figure>
+            <a href="restaurants/2-lanoteenchantee/2-menu.html">
+                <figure class="card">
+                    <img src="images/restaurants/paris-restaurant-lanoteenchantee-charonne.jpg"
+                        alt="La note enchantée - Restaurant - Paris, Charonne" title="Cliquable" loading="lazy" width="3024"
+                        height="3780" />
+                    <div class="new">
+                        <p>Nouveau</p>
+                    </div>
+                    <figcaption>
+                        <div>
+                            <h3>La note enchantée</h3>
+                            <p>Charonne</p>
+                        </div>
+                        <span class="fa-stack fa-2x animation-heart">
+                            <i class="far fa-heart fa-stack-1x animation-heart__stroke"></i>
+                            <i class="fas fa-heart fa-stack-1x animation-heart__fill"></i>
+                        </span>
+                    </figcaption>
+                </figure>
+            </a>
 
-            <figure class="card">
-                <img src="images/restaurants/paris-restaurant-alafrancaise-citerouge.jpg" alt="A la française - Restaurant - Paris, Cité Rouge" title="Cliquable" loading="lazy" width="3936" height="2624"/>
-                <figcaption>
-                    <p>A la française</p>
-                    <p>Cité Rouge</p>
-                </figcaption>
-            </figure>
+            <a href="restaurants/3-alafrancaise/3-menu.html">
+                <figure class="card">
+                    <img src="images/restaurants/paris-restaurant-alafrancaise-citerouge.jpg"
+                        alt="A la française - Restaurant - Paris, Cité Rouge" title="Cliquable" loading="lazy" width="3936"
+                        height="2624" />
+                    <figcaption>
+                        <div>
+                            <h3>A la française</h3>
+                            <p>Cité Rouge</p>
+                        </div>
+                        <span class="favorite">
+                            <i class="fas fa-heart favorite__1stheart"></i>
+                            
+                            <div>
+                                <i class="fas fa-heart favorite__2ndheart"></i>
+                            </div>
+                            
+                        </span>
+                    </figcaption>
+                </figure>
+            </a>
 
             <figure class="card">
                 <img src="images/restaurants/paris-restaurant-ledelicedessens-foliemericourt.jpg" alt="Le délice des sens - Restaurant - Paris, Folie-Méricourt" title="Cliquable" loading="lazy" width="5043" height="3456"/>
