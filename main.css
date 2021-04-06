@@ -512,6 +512,7 @@ footer i {
 }
 
 .menu-item {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -538,7 +539,7 @@ footer i {
 }
 .menu-item p {
   /* margin:0; */
-  padding: 0.5em 0 0.5em 0;
+  padding: 0.5em 0 0.5em 0.3em;
 }
 .menu-item .check {
   border-radius: 0 0.5em 0.5em 0;
