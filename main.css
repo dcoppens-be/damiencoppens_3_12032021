@@ -324,6 +324,10 @@ footer i {
 /* Responsive design: tous les supports entre 377px et 425px de largeur */
 /* Responsive design: tous les supports entre 427px et 768px de largeur */
 @media all and (min-width: 427px) and (max-width: 770px) {
+  body {
+    background-color: #EAEAEA;
+  }
+
   .pagewrapper {
     width: 80%;
     margin: 0 10%;

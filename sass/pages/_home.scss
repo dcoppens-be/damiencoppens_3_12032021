@@ -296,6 +296,11 @@
 /* Responsive design: tous les supports entre 427px et 768px de largeur */
 @media all and (min-width: 427px) and (max-width: 770px)
 {
+    body
+    {
+        background-color:$secondary-grey;
+    }
+
     .pagewrapper
     {
         width:80%;
