@@ -1,0 +1,103 @@
+/* Coeur animé avec couleurs paramétrables */
+/* $heartbox-backgroundcolor: couleur de fond */
+/* */
+@mixin heart($heartbox-backgroundcolor,$heart-color)
+{
+
+    padding:0.5em 1.0em;
+    height:25px;
+    position:relative;
+
+    /* Elément masquant le second coeur en dégradé de couleur et utilisé pour le dévoiler de bas en haut */
+    &::after
+    {
+        content:"";
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /*z-index: -1;*/
+
+        background-color:$heartbox-backgroundcolor;
+
+    
+        opacity:0;
+        /*transform:translateY(0);*/
+        transform-origin:top;
+        transform:scaleY(1);
+        transition: opacity 50ms,transform 1500ms;
+    }
+
+    /* Premier coeur: visible par défaut quand il n'y a pas de survol avec la souris*/
+    >.fa-heart/* &__1stheart */
+    {
+        /*margin:auto;*/
+        padding:0 0.1em;
+
+        color: $heart-color; /*$primary-grey;/*white;*/
+        text-shadow:1px 1px 0 black,1px -1px 0 black,-1px -1px black,-1px 1px black;
+        font-size:$hearticone-size;
+
+        opacity:1.0;
+        transition:opacity 100ms;
+    }
+
+    /* Contenant avec le second coeur, qui apparait au survol avec la souris */
+    div
+    {
+        display:flex;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /*z-index: -1;*/
+
+        opacity: 0;
+
+        transition: opacity 250ms;
+
+        font-size:$hearticone-size*1.3; /*1.7em;*/
+
+        /* Second coeur avec dégradé de couleur: apparition déclenchée par le survol avec la souris */
+        .fa-heart /* .favorite__2ndheart */
+        {
+            padding:0;
+            margin:auto;
+            background:linear-gradient(to right bottom,$secondary,$primary);
+            background-clip: text;
+            -webkit-background-clip: text; /* Necessaire pour Chrome */
+            color: transparent;
+        }
+
+    }
+
+    /* Au survol */
+    &:hover
+    {
+        /* Disparition du premier coeur */
+        >.fa-heart
+        {
+            opacity:0;
+        }
+
+        /* Apparition de l'élément contenant le second coeur */
+        & div
+        {
+            opacity:1;
+            /*transform:scale(1);*/
+        }
+
+        /* L'élément masquant le second coeur le dévoile*/
+        &::after
+        {
+            opacity:1;
+            /*transform:translateY(-100%);*/
+            transform:scaleY(0);
+        }
+    }
+
+}

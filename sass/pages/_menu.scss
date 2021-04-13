@@ -12,6 +12,9 @@
 
 .menu
 {
+    position:relative;
+    top:-50px;
+
     /*
     display:flex;
     flex-direction:column;
@@ -22,6 +25,14 @@
     background-color:$primary-grey;
     padding:1.0em 5% 2.5em 5%;
     border-radius:50px 50px 0 0;
+
+    /* Nom du restaurant avec coeur */
+    .menu-restaurant
+    {
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
 
     h2
     {
@@ -56,7 +67,7 @@
     }
 
     /* Bouton "Commander" */
-    >div
+    .menu-button
     {
         padding:1.0em 0;
         display:flex;
@@ -192,28 +203,8 @@
 
 }
 
-@keyframes apparition-progressive
+.footer-menu
 {
-    from
-    {
-        opacity:0;
-        transform:translateY(15px);
-    }
-    to
-    {
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@keyframes rotation-1turn
-{
-    from
-    {
-        transform:rotate(-1.0turn);
-    }
-    to
-    {
-        transform:rotate(0);
-    }
+    position:relative;
+    top:-50px;
 }

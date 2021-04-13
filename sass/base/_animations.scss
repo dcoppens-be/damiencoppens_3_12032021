@@ -1,0 +1,161 @@
+/* Elément/Enveloppe masquant le contenu du site durant le temps de chargement */
+.loadingpage
+{
+    position:relative;
+    /*z-index:1;*/
+
+    &::before
+    {
+        /* display:none; */ /* Activez cette ligne pour travailler sans le masque du spinning loader */
+
+        content:"";
+        background-color:black;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        
+        z-index: 2;
+
+        animation:disparition 700ms $loader-duration both ease-in-out;
+  
+    }
+}
+
+.spinning-loader
+{
+    width:100%;
+    height:40vh; /*100vh;*/
+
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:2;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    perspective:500px;
+    
+    .pie
+    {
+        /*position:sticky;*/
+        width:100px;
+        height:100px;
+        border-radius:50%;
+
+        span
+        {
+            color:white;
+            font-size:2.0em;
+            font-family: $font-logo;
+        }
+        
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        &--1
+        {
+            background-color:$primary;
+            /* transform-origin:left top 10px; */
+            animation-delay:250ms,$loader-duration;
+        }
+        &--2
+        {
+            background-color:$secondary;
+            transform-origin:50% 50% 10px;
+            animation-delay:900ms,$loader-duration;
+        }
+        &--3
+        {
+            background-color:$tertiary;
+            /* transform-origin:right top 10px; */
+            animation-delay:1550ms,$loader-duration;
+        }
+        
+        animation-name:loader, disparition;
+        animation-duration:750ms, 700ms;
+        animation-timing-function:ease-in-out,ease-in-out;
+        /* animation-delay */
+        animation-iteration-count:1, 1;
+        /* animation-direction */
+        animation-fill-mode:both, both;
+        /* animation-play-state */
+        
+    }
+}
+
+/* Coeur animé pour la page principale*/
+.favorite-home
+{
+    @include heart(white,white);
+}
+
+
+/* Coeur animé pour les menus*/
+.favorite-menu
+{
+    @include heart($primary-grey,$primary-grey);
+}
+
+/* KEYFRAMES */
+/* Animation du spinning loader */
+@keyframes loader
+{
+    from
+    {
+        transform:rotateY(0deg) translateZ(10px);
+    }
+    to
+    {
+        transform:rotateY(-360deg) translateZ(10px);
+    }
+}
+
+/* Animation contrôlant la dispartion du spinning loader et de l'élément masquant le site */
+@keyframes disparition
+{
+    from
+    {
+        opacity:1;
+        visibility:visible;
+    }
+    to
+    {
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+/* Animation contrôlant l'apparition des éléments des menus */
+@keyframes apparition-progressive
+{
+    from
+    {
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to
+    {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Animation de rotation utilisée pour la coche des éléments des menus*/
+@keyframes rotation-1turn
+{
+    from
+    {
+        transform:rotate(-1.0turn);
+    }
+    to
+    {
+        transform:rotate(0);
+    }
+}

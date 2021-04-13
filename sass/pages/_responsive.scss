@@ -1,0 +1,131 @@
+/* RESPONSIVE DESIGN */
+/* aspect-ratio and orientation and resolution */
+/* Responsive design: tous les supports jusqu'à 320px de largeur */
+@media all and (max-width: 320px)
+{
+    .spinning-loader
+    {
+        /* flex-direction:column; */
+        
+    }
+
+    header
+    {
+        font-size:1.5em;
+    }
+
+    .operation
+    {
+        h3
+        {
+            font-size:1.0em;
+        }
+    }
+}
+/* Responsive design: tous les supports entre 321px et 375px de largeur */
+@media all and (min-width: 321px) and (max-width: 376px)
+{
+    header
+    {
+        font-size:1.8em;
+    }
+
+    .operation
+    {
+        h3
+        {
+            font-size:1.0em;
+        }
+    }
+}
+/* Responsive design: tous les supports entre 377px et 425px de largeur */
+@media all and (min-width: 377px) and (max-width: 426px)
+{
+    
+}
+/* Responsive design: tous les supports entre 427px et 768px de largeur */
+@media all and (min-width: 427px) and (max-width: 770px)
+{
+    body
+    {
+        background-color:$secondary-grey;
+    }
+
+    .pagewrapper
+    {
+        width:80%;
+        margin:0 10%;
+    }
+
+    .operation
+    {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        div
+        {
+            width:60%;
+        }
+    }
+
+    .menu__list
+    {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        li
+        {
+            width:60%;
+        }
+        
+    }
+
+}
+/* Responsive design: autre version du spinning loader pour tous les écrans à partir de 500px de largeur */
+@media screen and (min-width: 500px)
+{
+    .spinning-loader
+    {
+        .pie
+        {
+            &--1
+            {
+                transform-origin:left top 10px;
+            }
+            &--3
+            {
+                transform-origin:right top 10px;
+            }
+        }
+    }
+}
+/* Responsive design: tous les supports à partir de 1024px de largeur */
+@media all and (min-width: 1024px)
+{
+    body
+    {
+        background-color:$secondary-grey;
+    }
+
+    .pagewrapper
+    {
+        width:60%;
+        margin:0 20%;
+    }
+
+    .menu__list
+    {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        li
+        {
+            width:60%;
+        }
+        
+    }
+
+}
