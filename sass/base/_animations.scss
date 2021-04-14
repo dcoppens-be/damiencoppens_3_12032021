@@ -1,5 +1,5 @@
 /* LOADER */
-/* Elément/Enveloppe masquant le contenu du site durant le temps de chargement */
+/* Elément/Enveloppe masquant le contenu du site durant le temps de chargement [ANIMATION] */
 .loadingpage
 {
     position:relative;
@@ -23,7 +23,7 @@
     }
 }
 
-/* Spinning loader */
+/* Spinning loader [ANIMATION] */
 .spinning-loader
 {
     width:100%;
@@ -84,13 +84,13 @@
 
 
 /* HEART-FAVORITE */
-/* Coeur animé pour la page principale*/
+/* Coeur animé [TRANSITION] pour la page principale*/
 .favorite-home
 {
     @include heart(white,white);
 }
 
-/* Coeur animé pour les menus*/
+/* Coeur animé [TRANSITION] pour les menus*/
 .favorite-menu
 {
     @include heart($primary-grey,$primary-grey);
@@ -99,7 +99,7 @@
 
 
 /* MENU */
-/* Apparition progressive du menu */
+/* Apparition progressive du menu [ANIMATION] */
 .menu
 {
     &__list
@@ -118,7 +118,7 @@
 
 
 /* CHECK MARK */
-/* Coche animée des éléments des menus */
+/* Coche animée des éléments des menus [TRANSITION & ANIMATION] */
 .menu-item
 {
     overflow:hidden;

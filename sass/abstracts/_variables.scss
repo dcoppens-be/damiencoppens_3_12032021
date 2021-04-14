@@ -2,15 +2,21 @@
 $font-primary:"Roboto", sans-serif;
 $font-logo:'Shrikhand', cursive;
 
+
 /* Couleurs de la charte graphique */
 $primary:#9356DC;
 $secondary:#FF79DA;
 $tertiary:#99E2D0;
 
+
 /* Différents niveaux de gris utilisés */
 $primary-grey:#F6F6F6;
 $secondary-grey:#EAEAEA;
 $tertiary-grey:#CFCFCF;
+
+
+/* Boutons */
+$button-lightenpercentage:5%; /* Pourcentage d'éclaircissement du bouton */
 
 /* Spinning loader */
 $loader-duration:2300ms; /* Durée de l'animation */
@@ -25,11 +31,14 @@ $loader-pieoverlap: -100ms; /* Décalage entre rotation succesive */
     @return $loader-delay + ($nth-pie - 1) * ($loader-pierotation + $loader-pieoverlap);
 }
 
+
 /* Apparition progressive du menu */
 $menu-delay:500ms; /* Délais d'apparition de la première partie du menu */
 
+
 /* Animation de la coche des menus */
 $coche-duration:500ms; /* Durée de l'animation */
+
 
 /* Coeur pour les restaurants favoris */
 $hearticone-size:1.5em; /* Taille */

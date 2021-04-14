@@ -2,6 +2,8 @@
 /* Polices */
 /* Couleurs de la charte graphique */
 /* Différents niveaux de gris utilisés */
+/* Boutons */
+/* Pourcentage d'éclaircissement du bouton */
 /* Spinning loader */
 /* Durée de l'animation */
 /* Durée de passage d'opaque à transparent */
@@ -63,7 +65,7 @@ p {
 }
 
 /* LOADER */
-/* Elément/Enveloppe masquant le contenu du site durant le temps de chargement */
+/* Elément/Enveloppe masquant le contenu du site durant le temps de chargement [ANIMATION] */
 .loadingpage {
   position: relative;
 }
@@ -81,7 +83,7 @@ p {
   animation: disparition 700ms 2300ms both ease-in-out;
 }
 
-/* Spinning loader */
+/* Spinning loader [ANIMATION] */
 .spinning-loader {
   width: 100%;
   height: 40vh;
@@ -130,7 +132,7 @@ p {
 }
 
 /* HEART-FAVORITE */
-/* Coeur animé pour la page principale*/
+/* Coeur animé [TRANSITION] pour la page principale*/
 .favorite-home {
   padding: 0.5em 1em;
   height: 25px;
@@ -198,7 +200,7 @@ p {
   transform: scaleY(0);
 }
 
-/* Coeur animé pour les menus*/
+/* Coeur animé [TRANSITION] pour les menus*/
 .favorite-menu {
   padding: 0.5em 1em;
   height: 25px;
@@ -267,7 +269,7 @@ p {
 }
 
 /* MENU */
-/* Apparition progressive du menu */
+/* Apparition progressive du menu [ANIMATION] */
 .menu__list {
   animation: apparition-progressive 1000ms backwards ease-in-out;
 }
@@ -282,7 +284,7 @@ p {
 }
 
 /* CHECK MARK */
-/* Coche animée des éléments des menus */
+/* Coche animée des éléments des menus [TRANSITION & ANIMATION] */
 .menu-item {
   overflow: hidden;
   /* Espace-texte décrivant le mets  */
@@ -355,6 +357,7 @@ p {
     transform: rotate(0);
   }
 }
+/* Bouton avec changement d'apparence (couleur de fond et ombre) au survol [TRANSITION] */
 button {
   cursor: pointer;
   color: white;
