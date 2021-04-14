@@ -1,8 +1,24 @@
 @charset "UTF-8";
-/* $y:1; */
+/* Polices */
+/* Couleurs de la charte graphique */
+/* Différents niveaux de gris utilisés */
+/* Spinning loader */
+/* Durée de l'animation */
+/* Durée de passage d'opaque à transparent */
+/* Délais avant démarrage de l'animation du loader */
+/* Durée d'une rotation */
+/* Décalage entre rotation succesive */
+/* Fonction de calcul du délais pour la rotation de chaque disque */
+/* $nth-pie: n ième disque */
+/* Apparition progressive du menu */
+/* Délais d'apparition de la première partie du menu */
+/* Animation de la coche des menus */
+/* Durée de l'animation */
+/* Coeur pour les restaurants favoris */
+/* Taille */
 /* Coeur animé avec couleurs paramétrables */
 /* $heartbox-backgroundcolor: couleur de fond */
-/* */
+/* $heart-color: couleur de remplissage du premier coeur */
 /* INITIALISATION des comportements de base */
 /* Forcer le corps de la page à occuper toute la largeur, avec remise à 0 du margin et du padding */
 body {
@@ -28,26 +44,28 @@ p {
   font-family: "Roboto", sans-serif;
 }
 
-/*
-h1,h2
-{
-    font-family: 'Shrikhand', cursive;
-}
-*/
+/* Ohmyfood*/
 .logo {
   font-family: "Shrikhand", cursive;
   font-size: 1.5em;
   letter-spacing: 0em;
 }
 
+/* Noms des restaurants */
 .restaurant {
   font-family: "Shrikhand", cursive;
 }
 
+.spinning-loader .pie span {
+  color: white;
+  font-size: 2em;
+  font-family: "Shrikhand", cursive;
+}
+
+/* LOADER */
 /* Elément/Enveloppe masquant le contenu du site durant le temps de chargement */
 .loadingpage {
   position: relative;
-  /*z-index:1;*/
 }
 .loadingpage::before {
   /* display:none; */
@@ -63,6 +81,7 @@ h1,h2
   animation: disparition 700ms 2300ms both ease-in-out;
 }
 
+/* Spinning loader */
 .spinning-loader {
   width: 100%;
   height: 40vh;
@@ -77,7 +96,6 @@ h1,h2
   perspective: 500px;
 }
 .spinning-loader .pie {
-  /*position:sticky;*/
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -93,11 +111,6 @@ h1,h2
   animation-fill-mode: both, both;
   /* animation-play-state */
 }
-.spinning-loader .pie span {
-  color: white;
-  font-size: 2em;
-  font-family: "Shrikhand", cursive;
-}
 .spinning-loader .pie--1 {
   background-color: #9356DC;
   /* transform-origin:left top 10px; */
@@ -107,13 +120,16 @@ h1,h2
   background-color: #FF79DA;
   transform-origin: 50% 50% 10px;
   animation-delay: 900ms, 2300ms;
+  /*900ms*/
 }
 .spinning-loader .pie--3 {
   background-color: #99E2D0;
   /* transform-origin:right top 10px; */
   animation-delay: 1550ms, 2300ms;
+  /*1550ms*/
 }
 
+/* HEART-FAVORITE */
 /* Coeur animé pour la page principale*/
 .favorite-home {
   padding: 0.5em 1em;
@@ -131,19 +147,15 @@ h1,h2
   right: 0;
   bottom: 0;
   left: 0;
-  /*z-index: -1;*/
   background-color: white;
   opacity: 0;
-  /*transform:translateY(0);*/
   transform-origin: top;
   transform: scaleY(1);
   transition: opacity 50ms, transform 1500ms;
 }
 .favorite-home > .fa-heart {
-  /*margin:auto;*/
   padding: 0 0.1em;
   color: white;
-  /*$primary-grey;/*white;*/
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px -1px black, -1px 1px black;
   font-size: 1.5em;
   opacity: 1;
@@ -156,11 +168,9 @@ h1,h2
   right: 0;
   bottom: 0;
   left: 0;
-  /*z-index: -1;*/
   opacity: 0;
   transition: opacity 250ms;
   font-size: 1.95em;
-  /*1.7em;*/
   /* Second coeur avec dégradé de couleur: apparition déclenchée par le survol avec la souris */
 }
 .favorite-home div .fa-heart {
@@ -182,11 +192,9 @@ h1,h2
 }
 .favorite-home:hover div {
   opacity: 1;
-  /*transform:scale(1);*/
 }
 .favorite-home:hover::after {
   opacity: 1;
-  /*transform:translateY(-100%);*/
   transform: scaleY(0);
 }
 
@@ -207,19 +215,15 @@ h1,h2
   right: 0;
   bottom: 0;
   left: 0;
-  /*z-index: -1;*/
   background-color: #F6F6F6;
   opacity: 0;
-  /*transform:translateY(0);*/
   transform-origin: top;
   transform: scaleY(1);
   transition: opacity 50ms, transform 1500ms;
 }
 .favorite-menu > .fa-heart {
-  /*margin:auto;*/
   padding: 0 0.1em;
   color: #F6F6F6;
-  /*$primary-grey;/*white;*/
   text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px -1px black, -1px 1px black;
   font-size: 1.5em;
   opacity: 1;
@@ -232,11 +236,9 @@ h1,h2
   right: 0;
   bottom: 0;
   left: 0;
-  /*z-index: -1;*/
   opacity: 0;
   transition: opacity 250ms;
   font-size: 1.95em;
-  /*1.7em;*/
   /* Second coeur avec dégradé de couleur: apparition déclenchée par le survol avec la souris */
 }
 .favorite-menu div .fa-heart {
@@ -258,12 +260,58 @@ h1,h2
 }
 .favorite-menu:hover div {
   opacity: 1;
-  /*transform:scale(1);*/
 }
 .favorite-menu:hover::after {
   opacity: 1;
-  /*transform:translateY(-100%);*/
   transform: scaleY(0);
+}
+
+/* MENU */
+/* Apparition progressive du menu */
+.menu__list {
+  animation: apparition-progressive 1000ms backwards ease-in-out;
+}
+.menu__list--1 {
+  animation-delay: 500ms;
+}
+.menu__list--2 {
+  animation-delay: 1000ms;
+}
+.menu__list--3 {
+  animation-delay: 1500ms;
+}
+
+/* CHECK MARK */
+/* Coche animée des éléments des menus */
+.menu-item {
+  overflow: hidden;
+  /* Espace-texte décrivant le mets  */
+  /* Contenant de la coche */
+  /* Au survol de l'élément du menu*/
+  /* Au survol de l'élément du menu*/
+}
+.menu-item div:nth-child(1) {
+  width: 100%;
+  transition: width 500ms;
+}
+.menu-item .check {
+  width: 0;
+  transform: translateX(100%);
+  transition: transform 500ms, width 500ms;
+}
+.menu-item:hover div:nth-child(1) {
+  width: 80%;
+  /* Réduction de la largeur de l'espace-texte */
+}
+.menu-item:hover .check {
+  width: 20%;
+  /* Agmentation de la largeur du contenant de la coche*/
+  transform: translateX(0);
+  /* Translation dans l'élement du menu */
+}
+.menu-item:hover .check .fa-check {
+  animation: rotation-1turn 500ms;
+  /*Keyframes de roatation de la coche */
 }
 
 /* KEYFRAMES */
@@ -308,9 +356,9 @@ h1,h2
   }
 }
 button {
-  /* margin:auto; */
   cursor: pointer;
   color: white;
+  font-size: 1em;
   padding: 1em;
   border-radius: 1.75em;
   border: none;
@@ -334,11 +382,6 @@ button::after {
   border: none;
   box-shadow: 2px 2px 4px black;
 }
-button:hover {
-  /* background:magenta; */
-  /* background:lighten( magenta, 25%); */
-  /* background-color:green; */
-}
 button:hover::after {
   opacity: 1;
 }
@@ -346,21 +389,14 @@ button:hover::after {
 header {
   background-color: white;
   font-size: 2em;
-  /* 45px; */
-  /* text-align:center; */
   padding: 0 2% 0 2%;
   display: flex;
   justify-content: center;
-  /* align-content:center; */
 }
 header i {
   padding: 0.5em;
 }
-header p:first-child {
-  /*background-color:red;*/
-}
 header p:nth-child(2) {
-  /*background-color:green;*/
   padding: 0 10vw;
 }
 
@@ -392,7 +428,6 @@ footer i {
   margin: 0;
   display: flex;
   justify-content: center;
-  /* align-content:center; */
 }
 .location > p {
   padding: 0 1em;
@@ -401,6 +436,7 @@ footer i {
   margin: 0;
 }
 
+/* Section d'introduction au concept Ohmyfood */
 .introduction {
   text-align: center;
   background-color: #F6F6F6;
@@ -411,6 +447,7 @@ footer i {
   font-weight: normal;
 }
 
+/* Section d'explication du fonctionnement */
 .operation {
   padding: 4% 5%;
   background-color: white;
@@ -448,11 +485,13 @@ footer i {
   color: #9356DC;
 }
 
+/* Section principale présentant la liste des restaurants */
 .collection {
   background-color: #F6F6F6;
   padding: 4% 5%;
 }
 
+/* Elément de présentation du restaurant: image et texte */
 .card {
   margin: 0;
   width: 100%;
@@ -470,7 +509,6 @@ footer i {
 .card figcaption {
   display: flex;
   justify-content: space-between;
-  /* align-content:center; */
   padding: 1em;
 }
 .card figcaption h3 {
@@ -480,10 +518,8 @@ footer i {
   font-weight: bold;
   padding: 0 0 0.5em 0;
 }
-.card figcaption i {
-  /*padding:0.25em 0.5em;*/
-}
 
+/* Encart d'indication des restaurants les plus récents */
 .new {
   width: 5em;
   padding: 0.25em;
@@ -494,9 +530,9 @@ footer i {
   position: absolute;
   top: 10px;
   right: 10px;
-  /* z-index:2; */
 }
 
+/* Espace affichant l'image du restaurant */
 .menuheader {
   width: 100%;
 }
@@ -506,19 +542,10 @@ footer i {
   object-fit: cover;
 }
 
+/* Section principale présentant le menu */
 .menu {
   margin-top: -50px;
   position: relative;
-  /*
-  position:relative;
-  top:-50px; 
-  */
-  /*
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  */
   background-color: #F6F6F6;
   padding: 1em 5% 2.5em 5%;
   border-radius: 50px 50px 0 0;
@@ -537,7 +564,6 @@ footer i {
   margin-bottom: 0.2em;
 }
 .menu hr {
-  /*text-align:left;*/
   color: #99E2D0;
   width: 3em;
   border-top: 2px solid #99E2D0;
@@ -545,18 +571,7 @@ footer i {
 }
 .menu__list {
   padding: 0;
-  /*background-color:red;*/
   width: 100%;
-  animation: apparition-progressive 1000ms backwards ease-in-out;
-}
-.menu__list--1 {
-  animation-delay: 500ms;
-}
-.menu__list--2 {
-  animation-delay: 1000ms;
-}
-.menu__list--3 {
-  animation-delay: 1500ms;
 }
 .menu .menu-button {
   padding: 1em 0;
@@ -568,6 +583,7 @@ footer i {
   padding: 1em 2.5em;
 }
 
+/* Elément de présentation du mets: nom, détails et prix */
 .menu-item {
   cursor: pointer;
   display: flex;
@@ -578,15 +594,9 @@ footer i {
   border-radius: 0.5em;
   box-shadow: 2px 2px 4px black;
   /* Espace-texte décrivant le mets  */
-  overflow: hidden;
-  /* Contenant de la coche */
-  /* Au survol de l'élément du menu*/
-  /* Au survol de l'élément du menu*/
+  /* Contenant de la coche apparaissant au survol avec la souris */
 }
 .menu-item div:nth-child(1) {
-  width: 100%;
-  transition: width 500ms;
-  /*background-color:green;*/
   display: flex;
   flex-direction: column;
   /*Titre du mets*/
@@ -595,16 +605,10 @@ footer i {
   font-weight: bold;
 }
 .menu-item p {
-  /* margin:0; */
   padding: 0.5em 0 0.5em 0.3em;
 }
 .menu-item .check {
   border-radius: 0 0.5em 0.5em 0;
-  /* overflow:hidden; */
-  width: 0;
-  /* transform:scaleX(0); */
-  transform: translateX(100%);
-  transition: transform 500ms, width 500ms;
   display: flex;
   /* Contenant des icônes*/
 }
@@ -614,37 +618,24 @@ footer i {
   font-size: 1em;
   padding: 1em 0.5em;
   background-color: #99E2D0;
-  /* transform:translateX(50px);
-  transition:transform 400ms; */
+  /* Icône du cercle autour de la coche */
+  /* Icône de la coche */
 }
 .menu-item .check span .fa-circle {
   color: white;
 }
 .menu-item .check span .fa-check {
   color: #99E2D0;
-  /* transition:transform $coche-duration; */
-}
-.menu-item:hover div:nth-child(1) {
-  width: 80%;
-  /* Réduction de la largeur de l'espace-texte */
-}
-.menu-item:hover .check {
-  width: 20%;
-  /* Agmentation de la largeur du contenant de la coche*/
-  transform: translateX(0);
-  /* Translation dans l'élement du menu */
-}
-.menu-item:hover .check .fa-check {
-  animation: rotation-1turn 500ms;
-  /*Keyframes de roatation de la coche */
 }
 
+/* Elément contenant les détails du mets*/
 .menu-item-details {
   display: flex;
   justify-content: space-between;
+  /* Informations complémentaires du mets */
+  /* Prix */
 }
 .menu-item-details p:nth-child(1) {
-  /*background-color:pink;*/
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -654,21 +645,10 @@ footer i {
   padding-right: 0.5em;
 }
 
-/*
-.footer-menu
-{
-    position:relative;
-    top:-50px;
-}
-*/
 /* RESPONSIVE DESIGN */
 /* aspect-ratio and orientation and resolution */
 /* Responsive design: tous les supports jusqu'à 320px de largeur */
 @media all and (max-width: 320px) {
-  .spinning-loader {
-    /* flex-direction:column; */
-  }
-
   header {
     font-size: 1.5em;
   }
@@ -735,6 +715,15 @@ footer i {
   .pagewrapper {
     width: 60%;
     margin: 0 20%;
+  }
+
+  .operation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .operation div {
+    width: 60%;
   }
 
   .menu__list {

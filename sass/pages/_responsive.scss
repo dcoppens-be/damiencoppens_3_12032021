@@ -3,12 +3,6 @@
 /* Responsive design: tous les supports jusqu'à 320px de largeur */
 @media all and (max-width: 320px)
 {
-    .spinning-loader
-    {
-        /* flex-direction:column; */
-        
-    }
-
     header
     {
         font-size:1.5em;
@@ -79,9 +73,7 @@
         {
             width:60%;
         }
-        
     }
-
 }
 /* Responsive design: autre version du spinning loader pour tous les écrans à partir de 500px de largeur */
 @media screen and (min-width: 500px)
@@ -115,6 +107,18 @@
         margin:0 20%;
     }
 
+    .operation
+    {
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        div
+        {
+            width:60%;
+        }
+    }
+
     .menu__list
     {
         display:flex;
@@ -125,7 +129,5 @@
         {
             width:60%;
         }
-        
     }
-
 }

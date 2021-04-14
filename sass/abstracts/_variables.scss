@@ -1,18 +1,35 @@
+/* Polices */
 $font-primary:"Roboto", sans-serif;
 $font-logo:'Shrikhand', cursive;
 
+/* Couleurs de la charte graphique */
 $primary:#9356DC;
 $secondary:#FF79DA;
 $tertiary:#99E2D0;
 
+/* Différents niveaux de gris utilisés */
 $primary-grey:#F6F6F6;
 $secondary-grey:#EAEAEA;
 $tertiary-grey:#CFCFCF;
 
-$loader-duration:2300ms;
+/* Spinning loader */
+$loader-duration:2300ms; /* Durée de l'animation */
+$loader-disparition:700ms; /* Durée de passage d'opaque à transparent */
+$loader-delay:250ms; /* Délais avant démarrage de l'animation du loader */
+$loader-pierotation:750ms; /* Durée d'une rotation */
+$loader-pieoverlap: -100ms; /* Décalage entre rotation succesive */
+/* Fonction de calcul du délais pour la rotation de chaque disque */
+/* $nth-pie: n ième disque */
+@function piedelay($nth-pie)
+{
+    @return $loader-delay + ($nth-pie - 1) * ($loader-pierotation + $loader-pieoverlap);
+}
 
-$coche-duration:500ms;
+/* Apparition progressive du menu */
+$menu-delay:500ms; /* Délais d'apparition de la première partie du menu */
 
-$hearticone-size:1.5em;
+/* Animation de la coche des menus */
+$coche-duration:500ms; /* Durée de l'animation */
 
-/* $y:1; */
+/* Coeur pour les restaurants favoris */
+$hearticone-size:1.5em; /* Taille */

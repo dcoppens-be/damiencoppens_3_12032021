@@ -8,7 +8,6 @@
     margin:0;
     display:flex;
     justify-content:center;
-    /* align-content:center; */
 
     >p
     {
@@ -21,6 +20,9 @@
     }
 }
 
+
+
+/* Section d'introduction au concept Ohmyfood */
 .introduction
 {
     text-align:center;
@@ -36,6 +38,7 @@
 
 
 
+/* Section d'explication du fonctionnement */
 .operation
 {
     padding:4% 5%;
@@ -87,12 +90,15 @@
 }
 
 
+
+/* Section principale présentant la liste des restaurants */
 .collection
 {
     background-color:$primary-grey;
     padding:4% 5%;
 }
 
+/* Elément de présentation du restaurant: image et texte */
 .card
 {
     margin:0;
@@ -114,7 +120,6 @@
     {
         display:flex;
         justify-content:space-between;
-        /* align-content:center; */
         padding:1.0em;
 
         h3
@@ -127,15 +132,10 @@
             font-weight:bold;
             padding:0 0 0.5em 0;
         }
-
-        i
-        {
-            /*padding:0.25em 0.5em;*/
-        }
     }
 }
 
-
+/* Encart d'indication des restaurants les plus récents */
 .new
 {
     width:5.0em;
@@ -147,5 +147,4 @@
     position:absolute;
     top:10px;
     right:10px;
-    /* z-index:2; */
 }

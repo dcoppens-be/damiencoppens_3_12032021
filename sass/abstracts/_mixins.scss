@@ -1,6 +1,6 @@
 /* Coeur animé avec couleurs paramétrables */
 /* $heartbox-backgroundcolor: couleur de fond */
-/* */
+/* $heart-color: couleur de remplissage du premier coeur */
 @mixin heart($heartbox-backgroundcolor,$heart-color)
 {
 
@@ -18,13 +18,10 @@
         right: 0;
         bottom: 0;
         left: 0;
-        /*z-index: -1;*/
 
         background-color:$heartbox-backgroundcolor;
 
-    
         opacity:0;
-        /*transform:translateY(0);*/
         transform-origin:top;
         transform:scaleY(1);
         transition: opacity 50ms,transform 1500ms;
@@ -33,10 +30,9 @@
     /* Premier coeur: visible par défaut quand il n'y a pas de survol avec la souris*/
     >.fa-heart/* &__1stheart */
     {
-        /*margin:auto;*/
         padding:0 0.1em;
 
-        color: $heart-color; /*$primary-grey;/*white;*/
+        color: $heart-color;
         text-shadow:1px 1px 0 black,1px -1px 0 black,-1px -1px black,-1px 1px black;
         font-size:$hearticone-size;
 
@@ -54,13 +50,12 @@
         right: 0;
         bottom: 0;
         left: 0;
-        /*z-index: -1;*/
 
         opacity: 0;
 
         transition: opacity 250ms;
 
-        font-size:$hearticone-size*1.3; /*1.7em;*/
+        font-size:$hearticone-size*1.3;
 
         /* Second coeur avec dégradé de couleur: apparition déclenchée par le survol avec la souris */
         .fa-heart /* .favorite__2ndheart */
@@ -88,14 +83,12 @@
         & div
         {
             opacity:1;
-            /*transform:scale(1);*/
         }
 
         /* L'élément masquant le second coeur le dévoile*/
         &::after
         {
             opacity:1;
-            /*transform:translateY(-100%);*/
             transform:scaleY(0);
         }
     }

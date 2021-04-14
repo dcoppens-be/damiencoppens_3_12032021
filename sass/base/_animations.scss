@@ -1,8 +1,8 @@
+/* LOADER */
 /* Elément/Enveloppe masquant le contenu du site durant le temps de chargement */
 .loadingpage
 {
     position:relative;
-    /*z-index:1;*/
 
     &::before
     {
@@ -19,11 +19,11 @@
         
         z-index: 2;
 
-        animation:disparition 700ms $loader-duration both ease-in-out;
-  
+        animation:disparition $loader-disparition $loader-duration both ease-in-out;
     }
 }
 
+/* Spinning loader */
 .spinning-loader
 {
     width:100%;
@@ -42,19 +42,10 @@
     
     .pie
     {
-        /*position:sticky;*/
         width:100px;
         height:100px;
         border-radius:50%;
-
-        span
-        {
-            color:white;
-            font-size:2.0em;
-            font-family: $font-logo;
-        }
         
-
         display:flex;
         justify-content:center;
         align-items:center;
@@ -63,23 +54,23 @@
         {
             background-color:$primary;
             /* transform-origin:left top 10px; */
-            animation-delay:250ms,$loader-duration;
+            animation-delay: piedelay(1),$loader-duration;
         }
         &--2
         {
             background-color:$secondary;
             transform-origin:50% 50% 10px;
-            animation-delay:900ms,$loader-duration;
+            animation-delay: piedelay(2),$loader-duration; /*900ms*/
         }
         &--3
         {
             background-color:$tertiary;
             /* transform-origin:right top 10px; */
-            animation-delay:1550ms,$loader-duration;
+            animation-delay: piedelay(3),$loader-duration; /*1550ms*/
         }
         
         animation-name:loader, disparition;
-        animation-duration:750ms, 700ms;
+        animation-duration:$loader-pierotation, $loader-disparition;
         animation-timing-function:ease-in-out,ease-in-out;
         /* animation-delay */
         animation-iteration-count:1, 1;
@@ -90,12 +81,14 @@
     }
 }
 
+
+
+/* HEART-FAVORITE */
 /* Coeur animé pour la page principale*/
 .favorite-home
 {
     @include heart(white,white);
 }
-
 
 /* Coeur animé pour les menus*/
 .favorite-menu
@@ -103,7 +96,74 @@
     @include heart($primary-grey,$primary-grey);
 }
 
+
+
+/* MENU */
+/* Apparition progressive du menu */
+.menu
+{
+    &__list
+    {
+        animation:apparition-progressive 1000ms backwards ease-in-out;
+        @for $i from 1 through 3
+        {
+            &--#{$i}
+            {
+                animation-delay:$menu-delay * $i;
+            }
+        }
+    }
+}
+
+
+
+/* CHECK MARK */
+/* Coche animée des éléments des menus */
+.menu-item
+{
+    overflow:hidden;
+
+    /* Espace-texte décrivant le mets  */
+    div:nth-child(1)
+    {
+        width:100%;
+        transition:width $coche-duration;
+    }
+
+    /* Contenant de la coche */
+    .check
+    {
+        width:0;
+        transform:translateX(100%);
+        transition:transform $coche-duration, width $coche-duration;
+    }
+
+    /* Au survol de l'élément du menu*/
+    &:hover div:nth-child(1)
+    {
+        width:80%; /* Réduction de la largeur de l'espace-texte */
+    }
+    /* Au survol de l'élément du menu*/
+    &:hover .check
+    {
+        width:20%; /* Agmentation de la largeur du contenant de la coche*/
+        transform:translateX(0); /* Translation dans l'élement du menu */
+            
+        .fa-check
+        {
+            animation:rotation-1turn $coche-duration; /*Keyframes de roatation de la coche */
+        }
+    }
+}
+
+
+
+
+
+
+
 /* KEYFRAMES */
+
 /* Animation du spinning loader */
 @keyframes loader
 {

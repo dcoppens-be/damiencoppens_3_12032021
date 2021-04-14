@@ -1,3 +1,4 @@
+/* Espace affichant l'image du restaurant */
 .menuheader
 {
     width:100%;
@@ -10,22 +11,13 @@
     }
 }
 
+
+
+/* Section principale présentant le menu */
 .menu
 {
     margin-top:-50px;
     position:relative;
-    
-    /*
-    position:relative;
-    top:-50px; 
-    */
-
-    /*
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    */
 
     background-color:$primary-grey;
     padding:1.0em 5% 2.5em 5%;
@@ -49,7 +41,6 @@
 
     hr
     {
-        /*text-align:left;*/
         color:$tertiary;
         width:3.0em;
         border-top:2px solid $tertiary;
@@ -59,16 +50,7 @@
     &__list
     {
         padding:0;
-        /*background-color:red;*/
         width:100%;
-        animation:apparition-progressive 1000ms backwards ease-in-out;
-        @for $i from 1 through 3
-        {
-            &--#{$i}
-            {
-                animation-delay:500ms * $i;
-            }
-        }
     }
 
     /* Bouton "Commander" */
@@ -84,10 +66,9 @@
             padding:1em 2.5em;
         }
     }
-
 }
 
-
+/* Elément de présentation du mets: nom, détails et prix */
 .menu-item
 {
     cursor:pointer;
@@ -104,9 +85,6 @@
     /* Espace-texte décrivant le mets  */
     div:nth-child(1)
     {
-        width:100%;
-        transition:width $coche-duration;
-        /*background-color:green;*/
         display:flex;
         flex-direction:column;
 
@@ -117,28 +95,15 @@
         }
     }
 
-    
-
     p
     {
-        /* margin:0; */
         padding:0.5em 0 0.5em 0.3em;
     }
 
-    overflow:hidden;
-
-    /* Contenant de la coche */
+    /* Contenant de la coche apparaissant au survol avec la souris */
     .check
     {
         border-radius:0 0.5em 0.5em 0;
-        /* overflow:hidden; */
-        width:0;
-
-        
-        /* transform:scaleX(0); */
-        transform:translateX(100%);
-        transition:transform $coche-duration, width $coche-duration;
-
         display:flex;
 
         /* Contenant des icônes*/
@@ -149,69 +114,40 @@
             font-size:1.0em;
             padding:1.0em 0.5em;
             background-color:$tertiary;
-            /* transform:translateX(50px);
-            transition:transform 400ms; */
 
+            /* Icône du cercle autour de la coche */
             .fa-circle
             {
                 color:white;
             }
 
+            /* Icône de la coche */
             .fa-check
             {
                 color:$tertiary;
-                
-                /* transition:transform $coche-duration; */
             }
-        }
-        
+        }   
     }
-
-
-    /* Au survol de l'élément du menu*/
-    &:hover div:nth-child(1)
-    {
-        width:80%; /* Réduction de la largeur de l'espace-texte */
-    }
-    /* Au survol de l'élément du menu*/
-    &:hover .check
-        {
-            width:20%; /* Agmentation de la largeur du contenant de la coche*/
-            transform:translateX(0); /* Translation dans l'élement du menu */
-            
-            .fa-check
-            {
-                animation:rotation-1turn $coche-duration; /*Keyframes de roatation de la coche */
-            }
-        }
-
 }
 
+/* Elément contenant les détails du mets*/
 .menu-item-details
 {
     display:flex;
     justify-content:space-between;
 
+    /* Informations complémentaires du mets */
     p:nth-child(1)
     {
-        /*background-color:pink;*/
         white-space:nowrap;
         overflow:hidden;
         text-overflow:ellipsis;
     }
 
+    /* Prix */
     p:last-child
     {
         font-weight:bold;
         padding-right:0.5em;
     }
-
 }
-
-/*
-.footer-menu
-{
-    position:relative;
-    top:-50px;
-}
-*/
