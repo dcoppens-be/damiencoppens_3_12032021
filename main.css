@@ -507,8 +507,12 @@ footer i {
 }
 
 .menu {
+  margin-top: -50px;
   position: relative;
-  top: -50px;
+  /*
+  position:relative;
+  top:-50px; 
+  */
   /*
   display:flex;
   flex-direction:column;
@@ -650,11 +654,13 @@ footer i {
   padding-right: 0.5em;
 }
 
-.footer-menu {
-  position: relative;
-  top: -50px;
+/*
+.footer-menu
+{
+    position:relative;
+    top:-50px;
 }
-
+*/
 /* RESPONSIVE DESIGN */
 /* aspect-ratio and orientation and resolution */
 /* Responsive design: tous les supports jusqu'à 320px de largeur */

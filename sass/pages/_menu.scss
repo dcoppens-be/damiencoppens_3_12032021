@@ -12,8 +12,13 @@
 
 .menu
 {
+    margin-top:-50px;
     position:relative;
-    top:-50px;
+    
+    /*
+    position:relative;
+    top:-50px; 
+    */
 
     /*
     display:flex;
@@ -203,8 +208,10 @@
 
 }
 
+/*
 .footer-menu
 {
     position:relative;
     top:-50px;
 }
+*/
